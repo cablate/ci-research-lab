@@ -24,3 +24,5 @@ No release, tag, npm publication, license selection, automated update schedule, 
 ## Support and security
 
 Use GitHub issues for nonsensitive reproduction, Node/npm versions, expected and actual results. There is no established private security channel or response-time guarantee; never post secrets. This lab is not a security product.
+
+<!-- CI experiment: harmless positive control. -->
