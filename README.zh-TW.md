@@ -5,7 +5,7 @@
 
 ## 快速開始
 
-本機證據使用 Windows、Node.js 22.23.2 與 npm 10.9.8。Ubuntu hosted 證據仍待驗證；workflow 指定同一個 Node 版本。
+本機證據使用 Windows、Node.js 22.23.2 與 npm 10.9.8。GitHub-hosted Ubuntu 的正常 main／PR 對照也已通過；負例 PR 觀察另列於下方。Workflow 指定同一個 Node 版本。
 
 ```sh
 npm ci --ignore-scripts
@@ -44,7 +44,9 @@ node tools/ci.mjs explain fixtures/contract.json fixtures/context.json fixtures/
 
 ## 現況與下一步
 
-本機建置與 59 個測試已通過；乾淨安裝與 workflow 靜態證據記錄在證據文件。Hosted PR 行為等待維護者驗證。下一步是有限度執行正常／產品失敗／product 略過的 PR 對照，記錄真正 run URL 與被測 revision。維護者透過本文件持有範圍、證據狀態與下一步。
+已公開基線為 `2ad546541a54f5edfe4c116b457fd6e149a105a5`。Windows 本機建置／59 個測試及 workflow 靜態檢查已通過。四次有界 hosted 執行已有觀察：[main push](https://github.com/cablate/ci-research-lab/actions/runs/38743569028) 與[正常 PR](https://github.com/cablate/ci-research-lab/actions/runs/38744180861) 以 59 個測試通過；[產品退化 PR](https://github.com/cablate/ci-research-lab/actions/runs/38744193868) 得到 fail／CHECK_FAILED，[product 略過 PR](https://github.com/cablate/ci-research-lab/actions/runs/38744205997) 得到 inconclusive／CHECK_SKIPPED。兩個負例 gate 都因不同原因退出非零。正常 PR 測的是合併測試 commit，不是另一個 head commit。精確 revision、診斷與限制見[證據](docs/experiments.md)。
+
+這證明同一套契約→計畫→證據→判定核心在這些對照成立，不代表已解決任意 CI 或產品品質。CLI 與 GitHub adapter 共用判定模型，不是各自拼裝 CLI wrappers。下一步是審閱有界證據，先同意代表性真實專案契約，再擴大驗證；不暗示已授權更廣整合。維護者透過本文件持有範圍、證據狀態與下一步。
 
 ## 限制、資料與移除
 

@@ -5,7 +5,7 @@ An experimental CI-core prototype for developers improving the CI wheel: one con
 
 ## Quick start
 
-Local evidence uses Windows, Node.js 22.23.2 and npm 10.9.8. Ubuntu hosted evidence remains pending; the workflow requests the same Node version.
+Local evidence uses Windows, Node.js 22.23.2 and npm 10.9.8. GitHub-hosted Ubuntu also passed the normal main/PR controls; negative PR observations are reported separately below. The workflow requests the same Node version.
 
 ```sh
 npm ci --ignore-scripts
@@ -44,7 +44,9 @@ node tools/ci.mjs explain fixtures/contract.json fixtures/context.json fixtures/
 
 ## Current status and next action
 
-Local build and 59 tests have passed; clean installation and static workflow evidence are recorded in the evidence document. Hosted PR behavior is pending maintainer verification. Next action: run bounded normal/product-failure/skipped-product PR comparisons and record actual run URLs and tested revisions. The maintainer owns scope, evidence status and next action here.
+The published baseline is `2ad546541a54f5edfe4c116b457fd6e149a105a5`. Windows local build/59 tests and static workflow checks passed. Four bounded hosted runs were observed: [main push](https://github.com/cablate/ci-research-lab/actions/runs/38743569028) and [normal PR](https://github.com/cablate/ci-research-lab/actions/runs/38744180861) passed with 59 tests; the [product-regression PR](https://github.com/cablate/ci-research-lab/actions/runs/38744193868) produced fail/CHECK_FAILED, while the [skipped-product PR](https://github.com/cablate/ci-research-lab/actions/runs/38744205997) produced inconclusive/CHECK_SKIPPED. Both negative gates exited nonzero, for different reasons. The normal PR tested its merge commit, not its distinct head commit. Exact revisions, diagnostics and limits are in [evidence](docs/experiments.md).
+
+This demonstrates the coherent contract-to-plan-to-evidence-to-verdict core on these controls, not that arbitrary CI or product quality is solved. CLI and GitHub adapter use one decision model rather than independent CLI wrappers. Next action: review this bounded evidence and agree on a representative real-project contract before broader validation; no wider integration is implied. The maintainer owns scope, evidence status and next action here.
 
 ## Limits, data and removal
 
