@@ -1,0 +1,255 @@
+[
+  {
+    "name": "complete",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "pass",
+    "code": null,
+    "weakPass": true
+  },
+  {
+    "name": "failure",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "failure",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "fail",
+    "code": "CHECK_FAILED",
+    "weakPass": false
+  },
+  {
+    "name": "missing",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": []
+    },
+    "expected": "inconclusive",
+    "code": "REQUIRED_EVIDENCE_MISSING",
+    "weakPass": true
+  },
+  {
+    "name": "skipped",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "skipped",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "CHECK_SKIPPED",
+    "weakPass": false
+  },
+  {
+    "name": "cancelled",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "cancelled",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "CHECK_CANCELLED",
+    "weakPass": false
+  },
+  {
+    "name": "zero",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 0
+        }
+      ]
+    },
+    "expected": "fail",
+    "code": "ZERO_TESTS",
+    "weakPass": true
+  },
+  {
+    "name": "below-minimum",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 1
+        }
+      ]
+    },
+    "expected": "fail",
+    "code": "TEST_COUNT_BELOW_MINIMUM",
+    "weakPass": true
+  },
+  {
+    "name": "missing-count",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success"
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "TEST_COUNT_MISSING",
+    "weakPass": true
+  },
+  {
+    "name": "stale-revision",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-OLD",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "REVISION_MISMATCH",
+    "weakPass": true
+  },
+  {
+    "name": "stale-contract",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "CONTRACT_DIGEST_MISMATCH",
+    "weakPass": true
+  },
+  {
+    "name": "stale-plan",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+          "result": "success",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "inconclusive",
+    "code": "PLAN_DIGEST_MISMATCH",
+    "weakPass": true
+  },
+  {
+    "name": "duplicate",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        },
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "invalid",
+    "code": "DUPLICATE_EVIDENCE",
+    "weakPass": true
+  },
+  {
+    "name": "contradictory",
+    "evidence": {
+      "schemaVersion": 1,
+      "records": [
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "success",
+          "executedTests": 2
+        },
+        {
+          "checkId": "product",
+          "revision": "synthetic-revision-A",
+          "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+          "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+          "result": "failure",
+          "executedTests": 2
+        }
+      ]
+    },
+    "expected": "invalid",
+    "code": "CONTRADICTORY_EVIDENCE",
+    "weakPass": false
+  }
+]

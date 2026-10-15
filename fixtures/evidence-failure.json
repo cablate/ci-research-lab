@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "checkId": "product",
+      "revision": "synthetic-revision-A",
+      "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+      "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a",
+      "result": "failure",
+      "executedTests": 2
+    }
+  ]
+}

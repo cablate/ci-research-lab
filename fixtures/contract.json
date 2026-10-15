@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "supportedEvents": [
+    "local"
+  ],
+  "checks": [
+    {
+      "id": "product",
+      "required": true,
+      "minTests": 2
+    }
+  ]
+}

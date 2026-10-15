@@ -1,0 +1,49 @@
+name: CI Lab
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  product:
+    name: Product verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    outputs:
+      revision: ${{ steps.identity.outputs.revision }}
+      contract_digest: ${{ steps.identity.outputs.contract_digest }}
+      plan_digest: ${{ steps.identity.outputs.plan_digest }}
+      executed_tests: ${{ steps.verification.outputs.executedTests }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.23.2'
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm run context
+      - id: identity
+        run: node tools/github-identity.mjs
+      - id: verification
+        run: npm run verify
+  gate:
+    name: Required result gate
+    needs: [product]
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.23.2'
+          package-manager-cache: false
+      - run: node tools/gate.mjs
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}

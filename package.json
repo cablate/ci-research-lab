@@ -1,0 +1,21 @@
+{
+  "name": "ci-research-lab",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A bounded CI verification experiment, not a published package",
+  "engines": {
+    "node": "22.23.2",
+    "npm": "10.9.8"
+  },
+  "scripts": {
+    "build": "node node_modules/typescript/bin/tsc -p tsconfig.json",
+    "test": "node tools/test.mjs",
+    "check:docs": "node tools/docs.mjs check",
+    "verify": "node tools/verify.mjs",
+    "context": "node tools/context.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

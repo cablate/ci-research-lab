@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "supportedEvents": ["local", "push", "pull_request", "workflow_dispatch"],
+  "checks": [{ "id": "product", "required": true, "minTests": 59 }]
+}

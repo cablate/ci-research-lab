@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "revision": "synthetic-revision-A",
+  "event": "local",
+  "contractDigest": "77fd35b61e7a11c63b5ad11215c0567bbb0953dee5b0a0b42d482b1db9dde516",
+  "checks": [
+    {
+      "id": "product",
+      "reason": "REQUIRED_BY_CONTRACT",
+      "minTests": 2
+    }
+  ],
+  "planDigest": "6216b3aaf56ab7b5dd3632c9a2fc6c4df0244eb3d058588516acbe2b56d2781a"
+}
